@@ -1,0 +1,357 @@
+\documentclass[a4paper,11pt]{article}
+
+% Package imports
+\usepackage{latexsym}
+\usepackage{xcolor}
+\usepackage{float}
+\usepackage{ragged2e}
+\usepackage[empty]{fullpage}
+\usepackage{wrapfig}
+\usepackage{lipsum}
+\usepackage{tabularx}
+\usepackage{titlesec}
+\usepackage{geometry}
+\usepackage{marvosym}
+\usepackage{verbatim}
+\usepackage{enumitem}
+\usepackage{fancyhdr}
+\usepackage{multicol}
+\usepackage{graphicx}
+\usepackage{cfr-lm}
+\usepackage[T1]{fontenc}
+\usepackage{fontawesome5}
+
+% Color definitions
+\definecolor{darkblue}{RGB}{0,0,139}
+
+% Page layout
+\setlength{\multicolsep}{0pt} 
+\pagestyle{fancy}
+\fancyhf{} % clear all header and footer fields
+\fancyfoot{}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0pt}
+\geometry{left=1.4cm, top=0.8cm, right=1.2cm, bottom=1cm}
+\setlength{\footskip}{5pt} % Addressing fancyhdr warning
+
+% Hyperlink setup (moved after fancyhdr to address warning)
+\usepackage[hidelinks]{hyperref}
+\hypersetup{
+    colorlinks=true,
+    linkcolor=darkblue,
+    filecolor=darkblue,
+    urlcolor=darkblue,
+}
+
+% Custom box settings
+\usepackage[most]{tcolorbox}
+\tcbset{
+    frame code={},
+    center title,
+    left=0pt,
+    right=0pt,
+    top=0pt,
+    bottom=0pt,
+    colback=gray!20,
+    colframe=white,
+    width=\dimexpr\textwidth\relax,
+    enlarge left by=-2mm,
+    boxsep=4pt,
+    arc=0pt,outer arc=0pt,
+}
+
+% URL style
+\urlstyle{same}
+
+% Text alignment
+\raggedright
+\setlength{\tabcolsep}{0in}
+
+% Section formatting
+\titleformat{\section}{
+  \vspace{-4pt}\scshape\raggedright\large
+}{}{0em}{}[\color{black}\titlerule \vspace{-7pt}]
+
+% Custom commands
+\newcommand{\resumeItem}[2]{
+  \item{
+    \textbf{#1}{\hspace{0.5mm}#2 \vspace{-0.5mm}}
+  }
+}
+
+\newcommand{\resumePOR}[3]{
+\vspace{0.5mm}\item
+    \begin{tabular*}{0.97\textwidth}[t]{l@{\extracolsep{\fill}}r}
+        \textbf{#1}\hspace{0.3mm}#2 & \textit{\small{#3}} 
+    \end{tabular*}
+    \vspace{-2mm}
+}
+
+\newcommand{\resumeSubheading}[4]{
+\vspace{0.5mm}\item
+    \begin{tabular*}{0.98\textwidth}[t]{l@{\extracolsep{\fill}}r}
+        \textbf{#1} & \textit{\footnotesize{#4}} \\
+        \textit{\footnotesize{#3}} &  \footnotesize{#2}\\
+    \end{tabular*}
+    \vspace{-2.4mm}
+}
+
+\newcommand{\resumeProject}[4]{
+\vspace{0.5mm}\item
+    \begin{tabular*}{0.98\textwidth}[t]{l@{\extracolsep{\fill}}r}
+        \textbf{#1} & \textit{\footnotesize{#3}} \\
+        \footnotesize{\textit{#2}} & \footnotesize{#4}
+    \end{tabular*}
+    \vspace{-2.4mm}
+}
+
+\newcommand{\resumeSubItem}[2]{\resumeItem{#1}{#2}\vspace{-4pt}}
+
+\renewcommand{\labelitemi}{$\vcenter{\hbox{\tiny$\bullet$}}$}
+\renewcommand{\labelitemii}{$\vcenter{\hbox{\tiny$\circ$}}$}
+
+\newcommand{\resumeSubHeadingListStart}{\begin{itemize}[leftmargin=*,labelsep=1mm]}
+\newcommand{\resumeHeadingSkillStart}{\begin{itemize}[leftmargin=*,itemsep=1.7mm, rightmargin=2ex]}
+\newcommand{\resumeItemListStart}{\begin{itemize}[leftmargin=*,labelsep=1mm,itemsep=0.5mm]}
+
+\newcommand{\resumeSubHeadingListEnd}{\end{itemize}\vspace{2mm}}
+\newcommand{\resumeHeadingSkillEnd}{\end{itemize}\vspace{-2mm}}
+\newcommand{\resumeItemListEnd}{\end{itemize}\vspace{-2mm}}
+\newcommand{\cvsection}[1]{%
+\vspace{2mm}
+\begin{tcolorbox}
+    \textbf{\large #1}
+\end{tcolorbox}
+    \vspace{-4mm}
+}
+
+\newcolumntype{L}{>{\raggedright\arraybackslash}X}%
+\newcolumntype{R}{>{\raggedleft\arraybackslash}X}%
+\newcolumntype{C}{>{\centering\arraybackslash}X}%
+
+% Commands for icon sizing and positioning
+\newcommand{\socialicon}[1]{\raisebox{-0.05em}{\resizebox{!}{1em}{#1}}}
+\newcommand{\ieeeicon}[1]{\raisebox{-0.3em}{\resizebox{!}{1.3em}{#1}}}
+
+% Font options
+\newcommand{\headerfonti}{\fontfamily{phv}\selectfont} % Helvetica-like (similar to Arial/Calibri)
+\newcommand{\headerfontii}{\fontfamily{ptm}\selectfont} % Times-like (similar to Times New Roman)
+\newcommand{\headerfontiii}{\fontfamily{ppl}\selectfont} % Palatino (elegant serif)
+\newcommand{\headerfontiv}{\fontfamily{pbk}\selectfont} % Bookman (readable serif)
+\newcommand{\headerfontv}{\fontfamily{pag}\selectfont} % Avant Garde-like (similar to Trebuchet MS)
+\newcommand{\headerfontvi}{\fontfamily{cmss}\selectfont} % Computer Modern Sans Serif
+\newcommand{\headerfontvii}{\fontfamily{qhv}\selectfont} % Quasi-Helvetica (another Arial/Calibri alternative)
+\newcommand{\headerfontviii}{\fontfamily{qpl}\selectfont} % Quasi-Palatino (another elegant serif option)
+\newcommand{\headerfontix}{\fontfamily{qtm}\selectfont} % Quasi-Times (another Times New Roman alternative)
+\newcommand{\headerfontx}{\fontfamily{bch}\selectfont} % Charter (clean serif font)
+
+\begin{document}
+\headerfontiii
+
+% Header
+\begin{center}
+    {\Huge\textbf{Furkan KOÇAL}}
+\end{center}
+\vspace{-6mm}
+
+\begin{center}
+    \small{
+    +90-553-703-0253 | \href{mailto:furkocal@gmail.com}{furkocal@gmail.com} | 
+    }
+\end{center}
+\vspace{-6mm}
+
+\begin{center}
+    \small{
+    \socialicon{\faLinkedin} \href{https://www.linkedin.com/in/fhurkhan/}{Fhurkhan} | 
+    \socialicon{\faGithub} \href{https://github.com/Fhurky}
+    {Fhurky} | 
+    \socialicon{\faTwitter} \href{https://x.com/Fhurkyy}
+    {Fhurkyy} | 
+    \socialicon{\faStackOverflow} \href{https://stackoverflow.com/users/18635857/fhurky}
+    {Fhurky} |
+    \socialicon{\faKaggle} \href{https://www.kaggle.com/furkankoal}
+    {Fhurky}
+    }
+\end{center}
+
+\vspace{-6mm}
+\begin{center}
+    \small{Umraniye / Istanbul}
+\end{center}
+
+\vspace{-4mm}
+
+\section{\textbf{Objective}}
+\vspace{1mm}
+\small{
+Hello! I specialize in artificial intelligence, machine learning, deep learning, and data science. With hands-on experience in technologies such as Python, Pandas, TensorFlow, and Keras, I continuously expand my knowledge through courses from platforms like DeepLearning.AI and IBM. My goal is to become a data scientist or machine learning engineer and build a professional career in AI by developing innovative and impactful solutions in the field of data science.
+}
+\vspace{-2mm}
+%----------------------------------------------------------
+\section{\textbf{Education}}
+\vspace{-0.4mm}
+\resumeSubHeadingListStart
+\resumeSubheading
+{Yıldız Technical University}{Istanbul}
+{Computer Engineering}{July 2020 - June 2025}
+\resumeItemListStart
+\item GPA: 3.23/4.00
+\resumeItemListEnd
+\resumeSubHeadingListEnd
+\vspace{-6mm}
+%----------------------------------------------------------
+\section{\textbf{Experience}}
+\vspace{-0.4mm}
+   \resumeSubHeadingListStart
+   \resumeSubheading
+      {{Huawei [\href{https://www.huawei.com/tr/corporate-information}{\faIcon{globe}}]}}{Umraniye/ İstanbul}
+      {AI Research Engineer}{Sep 2025 - Present}
+  \newline
+   \resumeSubheading
+      {{Cezeri Yapay Zeka Robotik Teknolojileri [\href{https://www.cezerirobot.com/tr/}{\faIcon{globe}}]}}{Sarıyer/ İstanbul}
+      {Artificial Intelligence Intern}{Mar 2025 - Jun 2025}
+  \newline
+  \resumeSubheading
+      {{i2i Systems [\href{https://i2i-systems.com/}{\faIcon{globe}}]}}{Esenler/ Istanbul}
+      {Software Engineering Intern (Telecommunication)}{Jul 2024 - Sept 2024}    
+    \resumeSubHeadingListEnd
+\vspace{-6mm}
+%----------------------------------------------------------
+\section{\textbf{Certifications}}
+\vspace{-0.2mm}
+\resumeSubHeadingListStart
+\resumePOR{}{\href{https://www.coursera.org/account/accomplishments/verify/TU186THKXJQM}{
+\textbf{IBM - Fundamentals of AI Agents Using RAG and LangChain}
+}}{February 2026}
+\resumePOR{}{\href{https://www.coursera.org/account/accomplishments/verify/AYWIZSTB2NDG}{
+\textbf{NVIDIA - AI Infrastructure and Operations Fundamentals}
+}}{August 2025}
+\resumePOR{}{\href{https://www.coursera.org/account/accomplishments/verify/Q775HQTXBDC7}{
+\textbf{IBM - Databases and SQL for Data Science with Python (With Honors)}
+}}{November 2024}
+\resumePOR{}{\href{https://www.coursera.org/account/accomplishments/certificate/MCZEI11CF5HZ}{
+\textbf{IBM - Data Science Methodology}
+}}{November 2024}
+\resumePOR{}{\href{https://www.coursera.org/account/accomplishments/verify/EWZL3FGN3DX9}{
+\textbf{IBM - Machine Learning with Python (With Honors)}
+}}{August 2024}
+\resumePOR{}{\href{https://www.coursera.org/account/accomplishments/verify/0AYFG3H7CAS6}{
+\textbf{DeepLearning.AI - Structuring Machine Learning Projects}
+}}{August 2024}
+\resumePOR{}{\href{https://www.coursera.org/account/accomplishments/verify/95YVDDRZH1O4}{
+\textbf{DeepLearning.AI - Neural Network and Deep Learning}
+}}{August 2024}
+\resumePOR{}{\href{https://www.btkakademi.gov.tr/portal/certificate/validate?certificateId=6mqFNqZjyn}{
+\textbf{BTK Academy - Machine Learnign with Python}
+}}{July 2024}
+\resumePOR{}{\href{https://www.btkakademi.gov.tr/portal/certificate/validate?certificateId=WJ1SMAAnBb}{
+\textbf{BTK Academy - Advanced Oracle-SQL}
+}}{July 2024}
+\resumePOR{}{\href{https://www.btkakademi.gov.tr/portal/certificate/validate?certificateId=rKjhGlw1zM}{
+\textbf{BTK Academy - Advanced Git and GitHub}
+}}{September 2023}
+
+\resumeSubHeadingListEnd
+\vspace{-6mm}
+%----------------------------------------------------------
+\section{\textbf{Projects}}
+\vspace{-0.4mm}
+\resumeSubHeadingListStart
+
+\resumeProject
+{Emotion Recognition from Human Voice Supported by Text and Image}
+{Tools: Python, NumPy, pandas, scikit-learn, TensorFlow, OpenCV, spaCy, BERT, CNN, KNN, SVM, Random Forest}
+{GitHub}
+{{}[\href{https://github.com/Fhurky/Real-Time-Emotion-Detection}{\textcolor{darkblue}{\faGithub}}]}
+\resumeItemListStart
+\item Developed a real-time multimodal emotion recognition system using voice, image, and text inputs to increase the accuracy of emotion classification.
+\item Implemented various ML/DL algorithms including CNN, KNN, SVM, Random Forest, Logistic Regression, AdaBoost, and Gaussian Naive Bayes for modality-specific classification.
+\item Integrated pre-trained BERT model fine-tuned on Turkish datasets to analyze emotional context from transcribed speech text.
+\item Combined extracted features from facial expressions, audio (pitch, intensity, MFCC), and transcribed text using a weighted voting-based fusion mechanism.
+\item Used multiple datasets such as RAVDESS, SAVEE, TESS, CREMA-D, and a Turkish text dataset for robust training and evaluation.
+\item Achieved high accuracy in real-time classification by dynamically prioritizing modalities based on individual model performance.
+\resumeItemListEnd
+
+\resumeProject
+{Keyword Extraction with Hybrid Methods}
+{Tools: Python, pandas, NumPy, scikit-learn, spaCy, TensorFlow, BERT}
+{GitHub}
+{{}[\href{https://github.com/username/keyword-extraction-project}{\textcolor{darkblue}{\faGithub}}]}
+\resumeItemListStart
+\item Developed a hybrid keyword extraction model combining statistical, rule-based, and deep learning methods to improve extraction accuracy across different datasets.
+\item Implemented multiple methods including YAKE, BERT, TF-IDF, spaCy Named Entity Recognition (NER), WordCloud, TextRank, TopicalRank, PositionRank, and RAKE to extract candidate keywords.
+\item Integrated deep learning models like BERT for contextual keyword extraction and TensorFlow-based custom models for feature enhancement.
+\item Created an evaluation pipeline using precision, recall, and F1-score to compare model performance across various datasets.
+\item Applied the hybrid model on datasets such as DUC2001, KrapiVIn, and K2POK, achieving higher performance than individual methods.
+\item Automated the model selection process to dynamically select the best combination of methods for each dataset.
+\resumeItemListEnd
+
+\resumeProject
+  {Predicting Moves in Rock, Paper, Scissors Game Using LSTM}
+  {Tools: Python, pandas, NumPy, scikit-learn, Keras, LSTM}
+  {GitHub}
+  {{}[\href{https://github.com/Fhurky/Predicting-Moves-in-Rock-Paper-Scissors-Game-Using-LSTM-Artificial-Neural-Networks}{\textcolor{darkblue}{\faGithub}}]}
+\resumeItemListStart
+  \item Developed a predictive model to recommend the optimal move in a game scenario based on previous player moves.
+  \item Implemented LSTM neural networks using Keras to forecast future moves with a categorical crossentropy loss function, achieving accurate move predictions.
+  \item Created a system to dynamically update the dataset with new moves and retrain the model, ensuring continuous improvement in prediction accuracy.
+  \item Applied one-hot encoding and sequence generation methods to preprocess data and enhance model performance.
+  \item Evaluated the model's performance against various benchmarks, achieving a prediction accuracy rate of over 55%.
+  \item Utilized a dataset consisting of over 2,000 games played between two individuals to train and validate the model.
+\resumeItemListEnd
+
+\resumeProject
+{Steam Games Recommender System}
+{Tools: Python, Pandas, NumPy, Kaggle API, Scikit-Learn, Nearest Neighbors (KNN)}
+{GitHub}
+{{}[\href{https://github.com/Fhurky/Video-Games-Recommendation}{\textcolor{darkblue}{\faGithub}}]}
+\resumeItemListStart
+\item Processed the Steam Games Complete Dataset to clean and prepare data by removing irrelevant columns, normalizing prices, and encoding popular tags as binary features.
+\item Designed a feature-rich recommendation system by implementing K-Nearest Neighbors (KNN) with cosine similarity to suggest games similar to a given title.
+\item Optimized dataset dimensionality by eliminating rarely used tags, improving model performance and reducing computation time.
+\item Delivered a robust recommendation engine capable of identifying 15 similar games for any input game, ensuring an engaging user experience.
+\resumeItemListEnd
+
+\resumeProject
+  {Bitcoin Price Prediction using Multiple Models}
+  {Tools: Python, Pandas, NumPy, TensorFlow, Scikit-Learn, MinMaxScaler, ConfigParser, Matplotlib}
+  {GitHub}
+  {{}[\href{https://github.com/Fhurky/Bitcoin_prediction}{\textcolor{darkblue}{\faGithub}}]}
+\resumeItemListStart
+  \item Implemented a Bitcoin price prediction system using multiple machine learning models, including LSTM, Decision Tree, Random Forest, SVR, KNN, and Kernel Ridge.
+  \item Utilized historical Bitcoin data to train the models and make predictions based on real-time input values, such as Open, High, and Low prices.
+  \item Preprocessed data by normalizing the 'Close' prices and transforming it into the required format for LSTM model training.
+  \item Integrated weighted average prediction based on inverse MSE scores to improve prediction accuracy by combining the outputs of all models.
+  \item Visualized the model predictions, including the weighted prediction, using a bar chart to clearly compare individual model performances.
+  \item Leveraged pre-trained models saved as `.pkl` files and `.h5` formats to make predictions and visualize the performance of each model.
+  \item Configured a custom application settings file (application.properties) to store model evaluation metrics and used them for dynamic model assessment.
+\resumeItemListEnd
+
+\vspace{2mm} % Adjust the value as needed
+
+\resumeSubHeadingListEnd
+
+\section{\textbf{Skills}}
+\vspace{-0.4mm}
+ \resumeHeadingSkillStart
+  \resumeSubItem{Programming Languages:}
+    {Python, JAVA, C}
+  \resumeSubItem{Database Systems:}
+    {PostgreSQL, Oracle}
+\resumeSubItem{Data Science \& Machine Learning:}
+  {Python, R, TensorFlow, Keras, Scikit-Learn, Pandas}
+  \resumeSubItem{DevOps \& Version Control:}
+    {git}
+ \resumeHeadingSkillEnd
+
+\section{\textbf{Additional Information}}
+\vspace{-0.4mm}
+\small{
+\textbf{Languages:} English (B2), Turkish (Native)
+
+\textbf{Interests:} Computer Vision, Deep Learning, Machine Learning, AI
+}
+\vspace{-4mm}
+
+\end{document}
