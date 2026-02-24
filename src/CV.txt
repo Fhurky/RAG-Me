@@ -185,7 +185,7 @@
 \section{\textbf{Objective}}
 \vspace{1mm}
 \small{
-Hello! I specialize in artificial intelligence, machine learning, deep learning, and data science. With hands-on experience in technologies such as Python, Pandas, TensorFlow, and Keras, I continuously expand my knowledge through courses from platforms like DeepLearning.AI and IBM. My goal is to become a data scientist or machine learning engineer and build a professional career in AI by developing innovative and impactful solutions in the field of data science.
+Hello! I specialize in AI, Machine Learning, and Data Science, operating with the belief that excellence is the fruit of persistent effort. My technical toolkit includes Python, Pandas, TensorFlow, and Keras, complemented by advanced certifications from DeepLearning.AI and IBM. As an aspiring Data Scientist and ML Engineer, I am committed to developing impactful AI solutions, firmly believing that every achievement in this field is a result of the labor invested in it.
 }
 \vspace{-2mm}
 %----------------------------------------------------------
@@ -260,6 +260,20 @@ Hello! I specialize in artificial intelligence, machine learning, deep learning,
 \resumeSubHeadingListStart
 
 \resumeProject
+  {RAG-Based Multi-Agent Digital Twin Resume System}
+  {Tools: Python, CrewAI, LangChain, ChromaDB, Sentence-Transformers, Google Gemini (LLM), Streamlit, Hugging Face Spaces}
+  {GitHub}
+  {{}[\href{https://github.com/Fhurky/RAG-Me}{\textcolor{darkblue}{\faGithub}}]}
+\resumeItemListStart
+  \item Architected a Retrieval-Augmented Generation (RAG) system that enables a conversational AI to answer questions about my CV using semantically indexed document embeddings.
+  \item Designed a multi-agent architecture with CrewAI, separating retrieval (research agent) and response synthesis (digital twin agent) to enforce strict evidence grounding and eliminate hallucinations.
+  \item Implemented adaptive document chunking with section-aware splitting strategies and metadata tagging to optimize embedding quality and retrieval precision.
+  \item Integrated Maximum Marginal Relevance (MMR) search over ChromaDB to balance semantic similarity and contextual diversity during retrieval.
+  \item Built a robust LaTeX-to-text preprocessing pipeline with structured macro rewriting and controlled parsing to transform raw CV data into structured RAG-ready documents.
+  \item Enforced prompt-level safety constraints requiring the generation agent to rely exclusively on retrieved evidence and explicitly reference source chunk identifiers.
+\resumeItemListEnd
+
+\resumeProject
 {Emotion Recognition from Human Voice Supported by Text and Image}
 {Tools: Python, NumPy, pandas, scikit-learn, TensorFlow, OpenCV, spaCy, BERT, CNN, KNN, SVM, Random Forest}
 {GitHub}
@@ -313,21 +327,6 @@ Hello! I specialize in artificial intelligence, machine learning, deep learning,
 \item Delivered a robust recommendation engine capable of identifying 15 similar games for any input game, ensuring an engaging user experience.
 \resumeItemListEnd
 
-\resumeProject
-  {Bitcoin Price Prediction using Multiple Models}
-  {Tools: Python, Pandas, NumPy, TensorFlow, Scikit-Learn, MinMaxScaler, ConfigParser, Matplotlib}
-  {GitHub}
-  {{}[\href{https://github.com/Fhurky/Bitcoin_prediction}{\textcolor{darkblue}{\faGithub}}]}
-\resumeItemListStart
-  \item Implemented a Bitcoin price prediction system using multiple machine learning models, including LSTM, Decision Tree, Random Forest, SVR, KNN, and Kernel Ridge.
-  \item Utilized historical Bitcoin data to train the models and make predictions based on real-time input values, such as Open, High, and Low prices.
-  \item Preprocessed data by normalizing the 'Close' prices and transforming it into the required format for LSTM model training.
-  \item Integrated weighted average prediction based on inverse MSE scores to improve prediction accuracy by combining the outputs of all models.
-  \item Visualized the model predictions, including the weighted prediction, using a bar chart to clearly compare individual model performances.
-  \item Leveraged pre-trained models saved as `.pkl` files and `.h5` formats to make predictions and visualize the performance of each model.
-  \item Configured a custom application settings file (application.properties) to store model evaluation metrics and used them for dynamic model assessment.
-\resumeItemListEnd
-
 \vspace{2mm} % Adjust the value as needed
 
 \resumeSubHeadingListEnd
@@ -336,13 +335,13 @@ Hello! I specialize in artificial intelligence, machine learning, deep learning,
 \vspace{-0.4mm}
  \resumeHeadingSkillStart
   \resumeSubItem{Programming Languages:}
-    {Python, JAVA, C}
+    {Python, Java, C, kotlin}
   \resumeSubItem{Database Systems:}
     {PostgreSQL, Oracle}
 \resumeSubItem{Data Science \& Machine Learning:}
-  {Python, R, TensorFlow, Keras, Scikit-Learn, Pandas}
+  {Python, TensorFlow, Keras, PyTorch, Scikit-Learn, Pandas, Numpy, Matplotlib, Seaborn}
   \resumeSubItem{DevOps \& Version Control:}
-    {git}
+    {git, GitHub, MLOps}
  \resumeHeadingSkillEnd
 
 \section{\textbf{Additional Information}}
@@ -350,7 +349,7 @@ Hello! I specialize in artificial intelligence, machine learning, deep learning,
 \small{
 \textbf{Languages:} English (B2), Turkish (Native)
 
-\textbf{Interests:} Computer Vision, Deep Learning, Machine Learning, AI
+\textbf{Interests:} Computer Vision, Deep Learning, Machine Learning, AI Agents
 }
 \vspace{-4mm}
 
